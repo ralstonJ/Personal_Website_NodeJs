@@ -1,11 +1,12 @@
 var express = require('express')
 var app = express();
+var fs = require('fs');
 
 app.set('port', (process.env.PORT || 5000))
 app.use(express.static(__dirname + '/public'))
 
 app.get('/', function(request, response) {
-  response.send('Server Started!')
+  response.sendfile('./HTML/home.html');
 })
 
 app.listen(app.get('port'), function() {
